@@ -39,7 +39,7 @@ namespace Tydzien_2_petle
                 k++;
                 if (k % 2 == 0)
                 {
-                    Console.WriteLine("Liczba to: {0}", k);
+                    Console.WriteLine($"Liczba to: {k}");
                 }
             }
             while (k <= 1000);
