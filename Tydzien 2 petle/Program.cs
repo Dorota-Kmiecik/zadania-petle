@@ -11,9 +11,8 @@ namespace Tydzien_2_petle
         static void Main(string[] args)
         {
             ////Zadanie 1
+            int i, j;
             bool isPrime = true;
-            int i;
-            int j;
             int primeCounter = 0;
             for (i = 2; i <= 100; i++)
             {
@@ -46,13 +45,14 @@ namespace Tydzien_2_petle
             while (k <= 1000);
 
             ////Zadanie 3
+            int l;
             int firstNumber = 0, SecondNumber = 1, nextNumber;
             Console.Write(firstNumber + " " + SecondNumber + " ");
             nextNumber = firstNumber + SecondNumber;
 
-            for (int l = 2; nextNumber < 100; l++)
+            for (l = 2; nextNumber < 100; l++)
             {
-                Console.Write(nextNumber + " ");
+                Console.Write(nextNumber + " " + "\n");
                 firstNumber = SecondNumber;
                 SecondNumber = nextNumber;
                 nextNumber = firstNumber + SecondNumber;
@@ -60,28 +60,35 @@ namespace Tydzien_2_petle
 
             ////Zadanie 4
             int counter = 1;
-            for (int m = 1; m <= 4; m++)
+            int m, n;
+            Console.WriteLine("Podaj liczbe wierszy");
+            int r = int.Parse(Console.ReadLine());
+
+            for (m = 1; m <= r; m++)
             {
-                for (int n = 1; n <= m; n++)
+                for (n = 1; n <= m; n++)
                 {
                     Console.Write($"{counter++} ");
                 }
                 Console.Write("\n");
             }
             ////Zadanie 5 
-            for (int o = 1; o <= 20; o++)
+            int o;
+            for (o = 1; o <= 20; o++)
             {
                 Console.WriteLine(o * o * o);
             }
 
             ////Zadanie 6
-            for (decimal p = 1; p <= 20; p++)
+            decimal p;
+            for (p = 1; p <= 20; p++)
             {
-                Console.WriteLine(p + 1 / p);
+                Console.WriteLine(1 / p);
             }
 
             //Zadanie 7
-            int numberRow = 4;
+            Console.WriteLine("Podaj liczbe wierszy");
+            int numberRow = int.Parse(Console.ReadLine());
             int space;
             int row;
             int star;
@@ -123,7 +130,8 @@ namespace Tydzien_2_petle
             // Zadanie 8 
             string normalWritten = "Abcdefg";
             string reverse = "";
-            for (int z = normalWritten.Length-1; z >= 0; z--)
+            int z; 
+            for (z = normalWritten.Length-1; z >= 0; z--)
             {
                 reverse += normalWritten[z];
             }
@@ -140,7 +148,7 @@ namespace Tydzien_2_petle
                 decimalNumber /= 2;
                 result = remainder.ToString() + result;
             }
-            Console.WriteLine("Liczba binarna to: {0}", result);
+            Console.WriteLine($"Liczba binarna to: {result}");
 
             //Zadanie 10 
             Console.WriteLine("Podaj pierwsza liczbe:");
