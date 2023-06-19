@@ -19,7 +19,7 @@ namespace Tydzien_2_petle
                 isPrime = true;
                 for (j = 2; j <= 100; j++)
                 {
-                    if (i != j && i % j == 0)
+                    if (i != j && i > j && i % j == 0)
                     {
                         isPrime = false;
                         break;
@@ -76,15 +76,18 @@ namespace Tydzien_2_petle
             int o;
             for (o = 1; o <= 20; o++)
             {
-                Console.WriteLine(o * o * o);
+                Console.WriteLine(o * o * o + "\n");
             }
 
             ////Zadanie 6
             decimal p;
+            decimal value1 = 0;
             for (p = 1; p <= 20; p++)
             {
-                Console.WriteLine(1 / p);
+                value1 = value1 + 1/p;
             }
+            Console.WriteLine(value1);
+
 
             //Zadanie 7
             Console.WriteLine("Podaj liczbe wierszy");
