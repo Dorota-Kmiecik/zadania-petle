@@ -9,15 +9,14 @@ namespace Tydzien_2_petle
     internal class Program
     {
         static void Main(string[] args)
-        {
-            ////Zadanie 1
-            int i, j;
+        {            
+            Console.WriteLine("Zadanie 1");
             bool isPrime = true;
             int primeCounter = 0;
-            for (i = 2; i <= 100; i++)
+            for (int i = 2; i <= 100; i++)
             {
                 isPrime = true;
-                for (j = 2; j <= 100; j++)
+                for (int j = 2; j <= 100; j++)
                 {
                     if (i != j && i > j && i % j == 0)
                     {
@@ -31,26 +30,29 @@ namespace Tydzien_2_petle
                 }
             }
             Console.WriteLine($"Mamy tyle liczb piewszych:{primeCounter}. \n");
-
-            ////Zadanie 2 
+            Console.WriteLine();
+            Console.WriteLine("Zadanie 2");
+            Console.WriteLine();
             int k = 0;
             do
             {
                 k++;
-                if (k % 2 == 0)
+                if ( k % 2 == 0)
                 {
                     Console.WriteLine($"Liczba to: {k}");
                 }
             }
             while (k <= 1000);
 
-            ////Zadanie 3
-            int l;
+            Console.WriteLine();
+            Console.WriteLine("Zadanie 3");
+            Console.WriteLine();
+
             int firstNumber = 0, SecondNumber = 1, nextNumber;
-            Console.Write(firstNumber + " " + SecondNumber + " ");
+            Console.Write(firstNumber + " " +"\n"+ SecondNumber + " " + "\n");
             nextNumber = firstNumber + SecondNumber;
 
-            for (l = 2; nextNumber < 100; l++)
+            for (int l = 2; nextNumber < 100; l++)
             {
                 Console.Write(nextNumber + " " + "\n");
                 firstNumber = SecondNumber;
@@ -58,17 +60,16 @@ namespace Tydzien_2_petle
                 nextNumber = firstNumber + SecondNumber;
             }
 
-            ////Zadanie 4
-            int counter = 1;
-            int m, n;
-            Console.WriteLine("Podaj liczbe");
-            int counterMax = int.Parse(Console.ReadLine());
-            //Console.WriteLine("Podaj liczbe wierszy");
-            //int r = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+            Console.WriteLine("Zadanie 4");
+            Console.WriteLine();
 
-            for (m = 1; m <= counterMax; m++)
+            int counter = 1;
+            Console.WriteLine("Podaj liczbe" + "\n");
+            int counterMax = int.Parse(Console.ReadLine());           
+            for (int m = 1; m <= counterMax; m++)
             {
-                for (n = 1; n <= m; n++)
+                for (int n = 1; n <= m; n++)
                 {
                     Console.Write($"{counter} ");
                     if (counter == counterMax)
@@ -81,14 +82,19 @@ namespace Tydzien_2_petle
             }
             Console.WriteLine("\n");
 
-            ////Zadanie 5 
-            int o;
-            for (o = 1; o <= 20; o++)
+            Console.WriteLine();
+            Console.WriteLine("Zadanie 5");
+            Console.WriteLine();
+            
+            for (int o = 1; o <= 20; o++)
             {
                 Console.WriteLine(o * o * o + "\n");
             }
 
-            ////Zadanie 6
+            Console.WriteLine();
+            Console.WriteLine("Zadanie 6");
+            Console.WriteLine();
+            
             decimal p;
             decimal value1 = 0;
             for (p = 1; p <= 20; p++)
@@ -97,45 +103,80 @@ namespace Tydzien_2_petle
             }
             Console.WriteLine(value1);
 
-
-            //Zadanie 7
-            Console.Write("Podaj długość krótszej przekątnej diamentu: ");
-            int diagonalLength = int.Parse(Console.ReadLine());
-
-            if (diagonalLength % 2 == 0)
+            Console.WriteLine();
+            Console.WriteLine("Zadanie 7");
+            Console.WriteLine();
+            
+            Console.WriteLine("Podaj przekatna");
+            int diagonal = int.Parse(Console.ReadLine());
+            if (diagonal % 2 == 0)
             {
-                Console.WriteLine("Długość krótszej przekątnej musi być liczbą nieparzystą.");
-                return;
+                int half1 = (diagonal / 2);
+                for (int i = 1; i <= half1; i++)
+                {
+                    for (int j = i + 1; j <= half1; j++)
+                    {
+                        Console.Write("  ");
+                    }
+                    for (int j = 1; j <= 2 * i; j++)
+                    {
+                        Console.Write("* ");
+
+                    }
+                    Console.WriteLine();
+                }
+                for (int i = 1; i <= half1 - 1; i++)
+                {
+                    for (int j = 1; j <= i; j++)
+                    {
+                        Console.Write("  ");
+                    }
+                    for (int j = i; j <= half1; j++)
+                    {
+                        Console.Write("* ");
+                    }
+                    for (int j = i; j < half1 - 1; j++)
+                    {
+                        Console.Write("* ");
+                    }
+                    Console.WriteLine();
+                }
             }
-
-            int half = diagonalLength / 2;
-            int space = half;
-            int stars = 1;
-
-            for (int row = 0; row < half; row++)
+            else
             {
-                for (int spacing = 0; spacing < space; spacing++)
-                    Console.Write(" ");
-
-                for (int starCounting = 0; starCounting < stars; starCounting++)
-                    Console.Write("*");
-
-                Console.WriteLine();
-                space--;
-                stars += 2;
-            }
-
-            for (int row = half; row >= 0; row--)
-            {
-                for (int spacing = 0; spacing < space; spacing++)
-                    Console.Write(" ");
-
-                for (int starCounting = 0; starCounting < stars; starCounting++)
-                    Console.Write("*");
-
-                Console.WriteLine();
-                space++;
-                stars -= 2;
+                int half = (diagonal / 2) + 1;
+                for (int i = 1; i <= half; i++)
+                {
+                    for (int j = i; j <= half - 1; j++)
+                    {
+                        Console.Write("  ");
+                    }
+                    for (int j = 1; j <= i; j++)
+                    {
+                        Console.Write("* ");
+                    }
+                    for (int j = 1; j < i; j++)
+                    {
+                        Console.Write("* ");
+                    }
+                    Console.WriteLine();
+                }
+                for (int i = 1; i < half; i++)
+                {
+                    for (int j = 1; j <= i; j++)
+                    {
+                        Console.Write("  ");
+                    }
+                    for (int j = i; j < half; j++)
+                    {
+                        Console.Write("* ");
+                    }
+                    for (int j = i; j < half-1; j++)
+                    {
+                        Console.Write("* ");
+                    }
+                    Console.WriteLine();
+                }
             }
 
             // Piramida z liter: 
@@ -148,17 +189,23 @@ namespace Tydzien_2_petle
             //     }
             //     Console.WriteLine("\n");
 
-            // Zadanie 8 
-            string normalWritten = "Abcdefg";
+            Console.WriteLine();
+            Console.WriteLine("Zadanie 8");
+            Console.WriteLine();
+
+            Console.WriteLine("Podaj tekst do odwrocenia");
+            string normalWritten = Console.ReadLine();
             string reverse = "";
-            int z;
-            for (z = normalWritten.Length - 1; z >= 0; z--)
+            for (int z = normalWritten.Length - 1; z >= 0; z--)
             {
                 reverse += normalWritten[z];
             }
             Console.WriteLine(reverse);
 
-            //Zadanie 9 - decimal -> binary
+            Console.WriteLine();
+            Console.WriteLine("Zadanie 9");
+            Console.WriteLine();
+
             Console.WriteLine("Podaj liczbe");
             int decimalNumber = int.Parse(Console.ReadLine());
             int remainder;
@@ -171,7 +218,10 @@ namespace Tydzien_2_petle
             }
             Console.WriteLine($"Liczba binarna to: {result}");
 
-            //Zadanie 10 
+            Console.WriteLine();
+            Console.WriteLine("Zadanie 10");
+            Console.WriteLine();
+            
             Console.WriteLine("Podaj pierwsza liczbe:");
             int numberFirst = int.Parse(Console.ReadLine());
             Console.WriteLine("Podaj druga liczbe:");
