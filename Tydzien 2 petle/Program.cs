@@ -61,17 +61,26 @@ namespace Tydzien_2_petle
             ////Zadanie 4
             int counter = 1;
             int m, n;
-            Console.WriteLine("Podaj liczbe wierszy");
-            int r = int.Parse(Console.ReadLine());
+            Console.WriteLine("Podaj liczbe");
+            int counterMax = int.Parse(Console.ReadLine());
+            //Console.WriteLine("Podaj liczbe wierszy");
+            //int r = int.Parse(Console.ReadLine());
 
-            for (m = 1; m <= r; m++)
+            for (m = 1; m <= counterMax; m++)
             {
                 for (n = 1; n <= m; n++)
                 {
-                    Console.Write($"{counter++} ");
+                    Console.Write($"{counter} ");
+                    if (counter == counterMax)
+                        break;
+                    counter++;
                 }
+                if (counter == counterMax)
+                    break;
                 Console.Write("\n");
             }
+            Console.WriteLine("\n");
+
             ////Zadanie 5 
             int o;
             for (o = 1; o <= 20; o++)
@@ -84,40 +93,49 @@ namespace Tydzien_2_petle
             decimal value1 = 0;
             for (p = 1; p <= 20; p++)
             {
-                value1 = value1 + 1/p;
+                value1 = value1 + 1 / p;
             }
             Console.WriteLine(value1);
 
 
             //Zadanie 7
-            Console.WriteLine("Podaj liczbe wierszy");
-            int numberRow = int.Parse(Console.ReadLine());
-            int space;
-            int row;
-            int star;
-            for (row = 1; row <= numberRow; row++)
+            Console.Write("Podaj długość krótszej przekątnej diamentu: ");
+            int diagonalLength = int.Parse(Console.ReadLine());
+
+            if (diagonalLength % 2 == 0)
             {
-                for (space = 1; space <= numberRow - row; space++)
-                {
-                    Console.Write(" ");
-                }
-                for (star = 1; star <= 2 * row - 1; star++)
-                {
-                    Console.Write("*");
-                }
-                Console.Write("\n");
+                Console.WriteLine("Długość krótszej przekątnej musi być liczbą nieparzystą.");
+                return;
             }
-            for (row = numberRow - 1; row >= 1; row--)
+
+            int half = diagonalLength / 2;
+            int space = half;
+            int stars = 1;
+
+            for (int row = 0; row < half; row++)
             {
-                for (space = 1; space <= numberRow - row; space++)
-                {
+                for (int spacing = 0; spacing < space; spacing++)
                     Console.Write(" ");
-                }
-                for (star = 1; star <= 2 * row - 1; star++)
-                {
+
+                for (int starCounting = 0; starCounting < stars; starCounting++)
                     Console.Write("*");
-                }
-                Console.Write("\n");
+
+                Console.WriteLine();
+                space--;
+                stars += 2;
+            }
+
+            for (int row = half; row >= 0; row--)
+            {
+                for (int spacing = 0; spacing < space; spacing++)
+                    Console.Write(" ");
+
+                for (int starCounting = 0; starCounting < stars; starCounting++)
+                    Console.Write("*");
+
+                Console.WriteLine();
+                space++;
+                stars -= 2;
             }
 
             // Piramida z liter: 
@@ -133,8 +151,8 @@ namespace Tydzien_2_petle
             // Zadanie 8 
             string normalWritten = "Abcdefg";
             string reverse = "";
-            int z; 
-            for (z = normalWritten.Length-1; z >= 0; z--)
+            int z;
+            for (z = normalWritten.Length - 1; z >= 0; z--)
             {
                 reverse += normalWritten[z];
             }
