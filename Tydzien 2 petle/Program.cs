@@ -64,24 +64,42 @@ namespace Tydzien_2_petle
             Console.WriteLine("Zadanie 4");
             Console.WriteLine();
 
-            int counter = 1;
+            int counter = 0;
             Console.WriteLine("Podaj liczbe" + "\n");
             int counterMax = int.Parse(Console.ReadLine());           
             for (int m = 1; m <= counterMax; m++)
             {
                 for (int n = 1; n <= m; n++)
                 {
+                    counter++;
                     Console.Write($"{counter} ");
                     if (counter == counterMax)
-                        break;
-                    counter++;
+                    break;                    
                 }
                 if (counter == counterMax)
-                    break;
-                Console.Write("\n");
+                break;
+                Console.WriteLine();
             }
-            Console.WriteLine("\n");
 
+            // Drugie rozwiazanie: 
+            Console.WriteLine();
+            Console.WriteLine("Podaj maksymalna liczbe:");
+            int counterMax2 = int.Parse(Console.ReadLine());
+            int counter2 = 1;
+            int level = 1;
+            while (counter2 <= counterMax2)
+            {
+                for (int i = 1; i <= level; i++)
+                {
+                    if (counter2 <= counterMax2)
+                    {
+                        Console.Write($"{counter2} ");
+                    }
+                    counter2++;
+                }
+                level++;
+                Console.WriteLine();
+            }
             Console.WriteLine();
             Console.WriteLine("Zadanie 5");
             Console.WriteLine();
